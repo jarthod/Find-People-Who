@@ -22,10 +22,7 @@ class User < ActiveRecord::Base
     return if artist_users.count > 0
     ru = Rockstar::User.new name
     ru.top_artists.each do |ra|
-      artist = Artist.find_or_create_by_mbid({:mbid => ra.mbid,
-          :image => ra.thumbnail.gsub('/serve/34', '/serve/34s'),
-          :name => ra.name,
-          :url => ra.url})
+      artist = Artist.from_rockstar ra
       artist_users.find_or_create_by_artist_id_and_kind(artist.id, 1)
     end
   end
@@ -37,7 +34,6 @@ class User < ActiveRecord::Base
     #events = geo.events(:lat => 50.0, :long => 12.3)
     events = geo.events(:location => country, :limit => 50)
     events.each do |re|
-      puts re.inspect
       event = Event.from_rockstar re
       event_users.find_or_create_by_event_id_and_kind(event.id, 1)
     end

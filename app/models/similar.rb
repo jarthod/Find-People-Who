@@ -1,6 +1,6 @@
 class Similar < ActiveRecord::Base
   belongs_to :artist
-  belongs_to :similar, :class_name => :artist
+  belongs_to :similar, :class_name => 'Artist'
 end
 
 # == Schema Info

@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20111105124523) do
   create_table "similars", :id => false, :force => true do |t|
     t.integer  "artist_id"
     t.integer  "similar_id"
+    t.integer  "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

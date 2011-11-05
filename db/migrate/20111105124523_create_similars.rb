@@ -3,6 +3,7 @@ class CreateSimilars < ActiveRecord::Migration
     create_table :similars, :id => false do |t|
       t.integer :artist_id
       t.integer :similar_id
+      t.integer :kind
       t.timestamps
     end
   end

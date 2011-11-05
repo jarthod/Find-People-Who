@@ -25,3 +25,12 @@ artist_event:
   number: 3
   url: "attend"
   sort: "attendance DESC"
+similar_artist:
+  origin: Artist
+  target: Artist
+  assoc: Similar
+  kind: 1
+  label: user_top_artist
+  number: 3
+  url: "fan"
+  sort: "random()"
