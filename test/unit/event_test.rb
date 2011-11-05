@@ -7,7 +7,6 @@ class EventTest < ActiveSupport::TestCase
   end
 end
 
-
 # == Schema Info
 # Schema version: 20111105124523
 #
@@ -16,6 +15,7 @@ end
 #  id         :integer         not null, primary key
 #  attendance :integer
 #  image      :string(255)
+#  permalink  :string(255)
 #  title      :string(255)
 #  uid        :integer
 #  url        :string(255)

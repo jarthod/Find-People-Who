@@ -7,7 +7,6 @@ class SimilarTest < ActiveSupport::TestCase
   end
 end
 
-
 # == Schema Info
 # Schema version: 20111105124523
 #

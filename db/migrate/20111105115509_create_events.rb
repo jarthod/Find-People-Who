@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :image
       t.integer :attendance
       t.string :url
-
+      t.string :permalink
       t.timestamps
     end
   end

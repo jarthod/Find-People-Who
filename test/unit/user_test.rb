@@ -7,7 +7,6 @@ class UserTest < ActiveSupport::TestCase
   end
 end
 
-
 # == Schema Info
 # Schema version: 20111105124523
 #
@@ -19,6 +18,7 @@ end
 #  gender     :string(255)
 #  image      :string(255)
 #  name       :string(255)
+#  permalink  :string(255)
 #  uid        :integer
 #  created_at :datetime
 #  updated_at :datetime
