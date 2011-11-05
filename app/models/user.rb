@@ -17,8 +17,16 @@ class User < ActiveRecord::Base
   rescue
     errors.add :name, :invalid
   end
+  
+  def fetch_top_artists!
+    ru = Rockstar::User.new name
+    ru.top_artists.each do |ra|
+      puts ra.inspect
+      artist = Artist.find_or_create_by_mbid({:mbid => ra.mbid, :image => ra.thumbnail.gsub('/serve/34', '/serve/34s'), :name => ra.name, :url => ra.url})
+      artist_users.create(:artist => artist, :kind => 1)
+    end
+  end
 end
-
 
 # == Schema Info
 # Schema version: 20111105124523
@@ -31,6 +39,7 @@ end
 #  gender     :string(255)
 #  image      :string(255)
 #  name       :string(255)
+#  permalink  :string(255)
 #  uid        :integer
 #  created_at :datetime
 #  updated_at :datetime

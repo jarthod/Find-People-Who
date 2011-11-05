@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20111105124523) do
     t.string   "name"
     t.string   "url"
     t.string   "image"
+    t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20111105124523) do
     t.string   "image"
     t.integer  "attendance"
     t.string   "url"
+    t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20111105124523) do
     t.string   "country"
     t.integer  "age"
     t.string   "gender"
+    t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

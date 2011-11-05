@@ -3,7 +3,6 @@ class EventUser < ActiveRecord::Base
   belongs_to :user
 end
 
-
 # == Schema Info
 # Schema version: 20111105124523
 #

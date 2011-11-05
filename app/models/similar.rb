@@ -3,7 +3,6 @@ class Similar < ActiveRecord::Base
   belongs_to :similar, :class_name => :artist
 end
 
-
 # == Schema Info
 # Schema version: 20111105124523
 #

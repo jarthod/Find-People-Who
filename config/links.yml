@@ -1,0 +1,17 @@
+fan:
+  origin: User
+  target: Artist
+  assoc: ArtistUser
+  kind: 1
+  label: user_top_artist
+  number: 4
+  url: "fan"
+attend:
+  origin: User
+  target: Event
+  assoc: EventUser
+  kind: 1
+  label: user_attend_event
+  number: 3
+  url: "attend"
+  

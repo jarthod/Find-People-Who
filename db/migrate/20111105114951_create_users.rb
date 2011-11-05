@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :country
       t.integer :age
       t.string :gender
-
+      t.string :permalink
       t.timestamps
     end
   end

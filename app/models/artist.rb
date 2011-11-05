@@ -4,9 +4,16 @@ class Artist < ActiveRecord::Base
   has_many :artist_users
   has_many :users, :through => :artist_users
   has_many :artist_events
-  has_many :events, :thourgh => :artists_events
-end
+  has_many :events, :through => :artists_events
+  
+  before_validation :generate_permalink, :on => :create
 
+protected
+  def generate_permalink
+    self.permalink = name.parameterize
+    self.permalink = name if permalink.blank?
+  end
+end
 
 # == Schema Info
 # Schema version: 20111105124523
@@ -17,6 +24,7 @@ end
 #  image      :string(255)
 #  mbid       :string(255)
 #  name       :string(255)
+#  permalink  :string(255)
 #  url        :string(255)
 #  created_at :datetime
 #  updated_at :datetime
