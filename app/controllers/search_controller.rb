@@ -6,6 +6,7 @@ class SearchController < ApplicationController
     @last_url = request.url
     # /fan/<artist>
     # /attend/<event>
+    render :index, :layout => nil if request.xhr?
   end
   
 protected

@@ -1,17 +1,13 @@
-.box
-  .box_content
-    #searchbar
-      = form_tag '' do
-        = text_field_tag :search, '', :placeholder => "LIKE..."
-    %ul#suggestions
-      - LINKS.each do |key, link|
-        - if link["origin"] == @last
-          - for elem in link['target'].constantize.order(link['sort']).limit(link['number']).find(associated_ids(@origin, link))
-            - target = elem
-            %li
-              = link_to @last_url + "#{link['url']}/#{target.permalink}" do
-                = image_tag target.image
-                = raw(t(link['label'], :name => target.name))
-
-
+#searchbar
+  = form_tag '' do
+    = text_field_tag :search, '', :placeholder => "LIKE..."
+%ul#suggestions
+  - LINKS.each do |key, link|
+    - if link["origin"] == @last
+      - for elem in link['target'].constantize.order(link['sort']).limit(link['number']).find(associated_ids(@origin, link))
+        - target = elem
+        %li
+          = link_to @last_url + "#{link['url']}/#{target.permalink}" do
+            = image_tag target.image
+            = raw(t(link['label'], :name => target.name))
 
