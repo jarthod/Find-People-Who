@@ -1,17 +1,15 @@
 .box
-  #searchbar
-    %form{ :method => "get"}
-      %input{ :type => "text", :name => "search", :placeholder => "ARE..."}
-  %ul#suggestions
-    - LINKS.each do |key, link|
-      - if link["origin"] == @last
-        - for elem in @origin.send(link['assoc'].underscore.pluralize).where('kind', link['kind']).order("random()").limit(link['number'])
-          - target = elem.send(link['target'].downcase)
-          %li
-            = image_tag target.image
-            = link_to raw(t(link['label'], :name => target.name)), @last_url + "#{link['url']}/#{target.permalink}"
-  %p
-    Path: 
-    = @path
+  .box_content
+    #searchbar
+      %form{ :method => "get"}
+        %input{ :type => "text", :name => "search", :placeholder => "ARE..."}
+    %ul#suggestions
+      - LINKS.each do |key, link|
+        - if link["origin"] == @last
+          - for elem in @origin.send(link['assoc'].underscore.pluralize).where('kind', link['kind']).order("random()").limit(link['number'])
+            - target = elem.send(link['target'].downcase)
+            %li
+              = image_tag target.image
+              = link_to raw(t(link['label'], :name => target.name)), @last_url + "#{link['url']}/#{target.permalink}"
 
 

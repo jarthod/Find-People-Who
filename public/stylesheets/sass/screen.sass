@@ -8,6 +8,8 @@ body
   font-family: Sans-serif
   margin: 0
   padding: 0
+  height: 100%
+  min-width: 1000px
 
 div.clear
   clear: both
@@ -18,28 +20,55 @@ a
   text-decoration: none
   &:hover
     color: $blue
-    
-header
-  background: $darkgray
-  margin: 0
-  padding: 7px
-  h1
-    color: white
-    margin: 0
-    padding: 0
-    font-size: 1em
-    float: left
+
+ul
+  margin: none
+  padding: none
+  list-style: none
+  li
+    margin: none
+    padding: none
+
+
+h2
+  display: block
+  width: 50%
+  margin: 20px auto
+  color: $darkgray
+  height: 30px
+
+#rightcol
+  margin: 50px 20px 50px 0
+  float: right
+  width: 20%
+  border: 1px solid darken($lightgray, 10)
+  background: darken($lightgray, 5) url(../images/bg-pattern.png)
+  border-radius: 5px
   #login
-    float: right
+    border: 1px solid darken($lightgray, 10)
+    background: $lightgray
+    border-radius: 3px
+    padding: 5px
+    font-size: 0.9em
+    font-weight: bold
+    a
+      display: block
+    img.user
+      float: right
+      width: 34px
+      height: 34px
+
 
 .box
   margin: 0 auto
-  padding: 20px
   background: white
   width: 50%
   border: 1px solid darken($lightgray, 10)
-  height: 600px
-  min-width: 500px
+  min-height: 500px
+  min-width: 600px
+
+.box_content
+  padding: 20px
 
 #searchbar
   text-align: center
