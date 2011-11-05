@@ -7,16 +7,20 @@
     = csrf_meta_tag
 
   %body
-    %header
-      %h1 Music Match!
-      #login
-        - if @user
-          = image_tag @user.image
-          = @user.name
-        - else
-          %a{ :href => "/sessions/new"}
-            Login with Last.fm
-      .clear
-    %h2 PEOPLE WHO...
+    #rightcol
+      .box_content
+        #login
+          - if @user
+            = @user.name
+            = image_tag @user.image, :class => "user"
+            = link_to "http://last.fm/user/" + @user.name, :target => "blank" do
+              = image_tag "lastfm.png"
+          - else
+            = link_to "/sessions/new", "Login"
+          .clear
+        %ul#notifications
+          %li You can Join a chat about Lady Gaga
+          %li You can Join a chat about EDC
+    %h2 FIND PEOPLE WHO...
     = yield  
     

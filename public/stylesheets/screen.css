@@ -2,7 +2,9 @@ body {
   background: #e1e1e1;
   font-family: Sans-serif;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  height: 100%;
+  min-width: 1000px; }
 
 div.clear {
   clear: both; }
@@ -13,27 +15,52 @@ a {
   a:hover {
     color: #0083a9; }
 
-header {
-  background: #363636;
-  margin: 0;
-  padding: 7px; }
-  header h1 {
-    color: white;
-    margin: 0;
-    padding: 0;
-    font-size: 1em;
-    float: left; }
-  header #login {
-    float: right; }
+ul {
+  margin: none;
+  padding: none;
+  list-style: none; }
+  ul li {
+    margin: none;
+    padding: none; }
+
+h2 {
+  display: block;
+  width: 50%;
+  margin: 20px auto;
+  color: #363636;
+  height: 30px; }
+
+#rightcol {
+  margin: 50px 20px 50px 0;
+  float: right;
+  width: 20%;
+  border: 1px solid #c8c8c8;
+  background: #d4d4d4 url(../images/bg-pattern.png);
+  border-radius: 5px; }
+  #rightcol #login {
+    border: 1px solid #c8c8c8;
+    background: #e1e1e1;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 0.9em;
+    font-weight: bold; }
+    #rightcol #login a {
+      display: block; }
+    #rightcol #login img.user {
+      float: right;
+      width: 34px;
+      height: 34px; }
 
 .box {
   margin: 0 auto;
-  padding: 20px;
   background: white;
   width: 50%;
   border: 1px solid #c8c8c8;
-  height: 600px;
-  min-width: 500px; }
+  min-height: 500px;
+  min-width: 600px; }
+
+.box_content {
+  padding: 20px; }
 
 #searchbar {
   text-align: center;
