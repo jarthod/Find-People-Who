@@ -1,0 +1,61 @@
+$darkgray: #363636
+$blue: #0083a9
+$red: #d83535
+$lightgray: #e1e1e1
+
+body
+  background: $lightgray
+  font-family: Sans-serif
+  margin: 0
+  padding: 0
+
+div.clear
+  clear: both
+
+
+a
+  color: lighten($darkgray, 20)
+  text-decoration: none
+  &:hover
+    color: $blue
+    
+header
+  background: $darkgray
+  margin: 0
+  padding: 7px
+  h1
+    color: white
+    margin: 0
+    padding: 0
+    font-size: 1em
+    float: left
+  #login
+    float: right
+
+.box
+  margin: 0 auto
+  padding: 20px
+  background: white
+  width: 50%
+  border: 1px solid darken($lightgray, 10)
+  height: 600px
+  min-width: 500px
+
+#searchbar
+  text-align: center
+  margin-bottom: 40px
+  input
+    height: 45px
+    width: 97%
+    padding: 5px
+    font-size: 1.8em
+
+#suggestions
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    padding: 10px
+    a
+      font-size: 1.5em
+
