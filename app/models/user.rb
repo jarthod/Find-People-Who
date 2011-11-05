@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     self.age = ru.age
     self.country = ru.country
     self.gender = ru.gender
-    self.image = ru.avatar
+    self.image = ru.avatar.gsub('/serve/34', '/serve/34s')
     save
   rescue
     errors.add :name, :invalid

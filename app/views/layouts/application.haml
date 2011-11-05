@@ -9,8 +9,12 @@
     %header
       %h1 Music Match!
       #login
-        %a{ :href => "http://last.fm"}
-          Login with Last.fm
+        - if @user
+          = image_tag @user.image
+          = @user.name
+        - else
+          %a{ :href => "/sessions/new"}
+            Login with Last.fm
       .clear
     %h2 PEOPLE WHO...
     = yield  
