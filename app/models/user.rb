@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
     errors.add :name, :invalid
   end
   
-  def fetch_top_artists!
+  def fetch_artists!
+    return if artist_users.count > 0
     ru = Rockstar::User.new name
     ru.top_artists.each do |ra|
       artist = Artist.find_or_create_by_mbid({:mbid => ra.mbid,
@@ -29,20 +30,24 @@ class User < ActiveRecord::Base
     end
   end
   
-  def fetch_top_events!
+  def fetch_events!
+    return if event_users.count > 0
     geo = Rockstar::Geo.new
     # GPS version
     #events = geo.events(:lat => 50.0, :long => 12.3)
     events = geo.events(:location => country, :limit => 50)
     events.each do |re|
       puts re.inspect
-      event = Event.find_or_create_by_uid({:uid => re.eid,
-          :attendance => re.attendance,
-          :image => re.images['small'].gsub('/serve/34', '/serve/34s'),
-          :title => re.title,
-          :url => re.url,
-          :start_at => re.start_date})
+      event = Event.from_rockstar re
       event_users.find_or_create_by_event_id_and_kind(event.id, 1)
+    end
+  end
+  
+  def image_with_fallback
+    if image.present?
+      image
+    else
+      'http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_small.png'
     end
   end
 end

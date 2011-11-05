@@ -12,7 +12,7 @@
         #login
           - if @user
             = @user.name
-            = image_tag @user.image, :class => "user"
+            = image_tag @user.image_with_fallback, :class => "user"
             = link_to "http://last.fm/user/" + @user.name, :target => "blank" do
               = image_tag "lastfm.png"
           - else
