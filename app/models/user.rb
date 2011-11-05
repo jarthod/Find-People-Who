@@ -1,4 +1,4 @@
-require 'vendor/gems/rockstar/lib/rockstar.rb'
+require Rails.root.join('vendor/gems/rockstar/lib/rockstar.rb')
 
 class User < ActiveRecord::Base
   has_many :event_users
