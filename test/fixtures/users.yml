@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  uid: 1
+  image: MyString
+  country: MyString
+  age: 1
+  gender: MyString
+
+two:
+  name: MyString
+  uid: 1
+  image: MyString
+  country: MyString
+  age: 1
+  gender: MyString
+
+
+# == Schema Info
+# Schema version: 20111105124523
+#
+# Table name: users
+#
+#  id         :integer         not null, primary key
+#  age        :integer
+#  country    :string(255)
+#  gender     :string(255)
+#  image      :string(255)
+#  name       :string(255)
+#  uid        :integer
+#  created_at :datetime
+#  updated_at :datetime

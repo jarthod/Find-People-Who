@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mbid: MyString
+  name: MyString
+  url: MyString
+  image: MyString
+
+two:
+  mbid: MyString
+  name: MyString
+  url: MyString
+  image: MyString
+
+
+# == Schema Info
+# Schema version: 20111105124523
+#
+# Table name: artists
+#
+#  id         :integer         not null, primary key
+#  image      :string(255)
+#  mbid       :string(255)
+#  name       :string(255)
+#  url        :string(255)
+#  created_at :datetime
+#  updated_at :datetime

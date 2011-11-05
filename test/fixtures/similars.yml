@@ -1,0 +1,20 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  artist_id: 1
+  similar_id: 1
+
+two:
+  artist_id: 1
+  similar_id: 1
+
+
+# == Schema Info
+# Schema version: 20111105124523
+#
+# Table name: similars
+#
+#  artist_id  :integer
+#  similar_id :integer
+#  created_at :datetime
+#  updated_at :datetime

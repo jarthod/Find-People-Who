@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  uid: 1
+  title: MyString
+  start_at: 2011-11-05 12:55:09
+  image: MyString
+  attendance: 1
+  url: MyString
+
+two:
+  uid: 1
+  title: MyString
+  start_at: 2011-11-05 12:55:09
+  image: MyString
+  attendance: 1
+  url: MyString
+
+
+# == Schema Info
+# Schema version: 20111105124523
+#
+# Table name: events
+#
+#  id         :integer         not null, primary key
+#  attendance :integer
+#  image      :string(255)
+#  title      :string(255)
+#  uid        :integer
+#  url        :string(255)
+#  created_at :datetime
+#  start_at   :datetime
+#  updated_at :datetime
