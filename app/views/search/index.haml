@@ -1,2 +1,19 @@
-= @path
+.box
+  #searchbar
+    %form{ :method => "get"}
+      %input{ :type => "text", :name => "search", :placeholder => "ARE..."}
+  %ul#suggestions
+    %li 
+      %a{ :href => "#"}
+        Are fan of Justice
+    %li 
+      %a{ :href => "#"}
+        Are going to the Electric Daisy Carnival Las Vegas
+    %li 
+      %a{ :href => "#"}
+        Want some chocolate
+  %p
+    Path: 
+    = @path
+
 
