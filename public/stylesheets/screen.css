@@ -9,6 +9,11 @@ body {
 div.clear {
   clear: both; }
 
+img {
+  margin: 0;
+  padding: 0;
+  border: none; }
+
 a {
   color: #696969;
   text-decoration: none; }
@@ -60,7 +65,7 @@ h2 {
   min-width: 600px; }
 
 .box_content {
-  padding: 20px; }
+  padding: 15px; }
 
 #searchbar {
   text-align: center;
@@ -78,4 +83,12 @@ h2 {
   #suggestions li {
     padding: 10px; }
     #suggestions li a {
-      font-size: 1.5em; }
+      padding: 5px;
+      font-size: 1.5em;
+      display: block; }
+      #suggestions li a:hover {
+        color: #0083a9;
+        background: #e1e1e1;
+        border-radius: 3px; }
+      #suggestions li a img {
+        vertical-align: middle; }

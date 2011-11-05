@@ -16,7 +16,7 @@
             = link_to "http://last.fm/user/" + @user.name, :target => "blank" do
               = image_tag "lastfm.png"
           - else
-            = link_to "/sessions/new", "Login"
+            = link_to "Login", "/sessions/new" 
           .clear
         %ul#notifications
           %li You can Join a chat about Lady Gaga

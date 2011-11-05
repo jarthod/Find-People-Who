@@ -14,7 +14,10 @@ body
 div.clear
   clear: both
 
-
+img
+  margin: 0
+  padding: 0
+  border: none
 a
   color: lighten($darkgray, 20)
   text-decoration: none
@@ -68,7 +71,7 @@ h2
   min-width: 600px
 
 .box_content
-  padding: 20px
+  padding: 15px
 
 #searchbar
   text-align: center
@@ -86,5 +89,14 @@ h2
   li
     padding: 10px
     a
+      padding: 5px
       font-size: 1.5em
+      display: block
+      &:hover
+        color: $blue
+        background: $lightgray
+        border-radius: 3px
+      img
+        vertical-align: middle
+
 
