@@ -8,6 +8,15 @@ class Artist < ActiveRecord::Base
   
   before_validation :generate_permalink, :on => :create
 
+  def fetch_events!
+    return if artist_events.count > 0
+    ra = Rockstar::Artist.new(name)
+    ra.events(:limit => 10).each do |re|
+      event = Event.from_rockstar re
+      artist_events.find_or_create_by_event_id_and_kind(event.id, 1)
+    end
+  end
+
 protected
   def generate_permalink
     self.permalink = name.parameterize

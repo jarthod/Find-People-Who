@@ -24,10 +24,14 @@ protected
       filter, arg = @path.shift 2
       puts "Filter #{filter} = #{arg}"
       link = LINKS[filter]
+      next if link.nil?
+      
       if @path.empty?
-        @last = link
-        @origin = nil
+        @last = link['target']
+        @origin = @last.constantize.find_by_permalink(arg)
       end
     end
+    puts @last
+    puts @origin.inspect
   end
 end

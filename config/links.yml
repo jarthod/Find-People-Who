@@ -16,4 +16,12 @@ attend:
   number: 3
   url: "attend"
   sort: "attendance DESC"
-  
+artist_event:
+  origin: Artist
+  target: Event
+  assoc: ArtistEvent
+  kind: 1
+  label: user_attend_event
+  number: 3
+  url: "attend"
+  sort: "attendance DESC"

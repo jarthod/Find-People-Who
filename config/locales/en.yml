@@ -5,3 +5,4 @@ en:
   hello: "Hello world"
   user_top_artist: "like %{name}"
   user_attend_event: "will attend %{name}"
+  sub_user_attend_event: "on %{strdate} in %{city}, %{country}"
