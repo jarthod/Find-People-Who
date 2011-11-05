@@ -1,3 +1,6 @@
+head {
+  height: 100%; }
+
 body {
   background: #e1e1e1;
   font-family: Sans-serif;
@@ -28,7 +31,7 @@ ul {
     margin: none;
     padding: none; }
 
-h2 {
+h1 {
   display: block;
   width: 50%;
   margin: 20px auto;
@@ -56,13 +59,25 @@ h2 {
       width: 34px;
       height: 34px; }
 
-.box {
-  margin: 0 auto;
-  background: white;
-  width: 50%;
+#wrapp_box {
+  width: 75%;
+  overflow: hidden;
   border: 1px solid #c8c8c8;
-  min-height: 500px;
-  min-width: 600px; }
+  background: #d4d4d4 url(../images/bg-pattern.png);
+  border-radius: 5px; }
+  #wrapp_box > ul {
+    min-width: 5000em;
+    margin-left: 275px; }
+
+.box {
+  float: left;
+  background: white;
+  width: 800px;
+  border: 1px solid #c8c8c8;
+  min-height: 600px;
+  min-width: 600px;
+  margin: 15px;
+  padding: 10px; }
 
 .box_content {
   padding: 15px; }

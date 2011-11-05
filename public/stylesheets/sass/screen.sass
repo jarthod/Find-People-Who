@@ -3,6 +3,9 @@ $blue: #0083a9
 $red: #d83535
 $lightgray: #e1e1e1
 
+head
+  height: 100%
+
 body
   background: $lightgray
   font-family: Sans-serif
@@ -33,7 +36,7 @@ ul
     padding: none
 
 
-h2
+h1
   display: block
   width: 50%
   margin: 20px auto
@@ -62,13 +65,25 @@ h2
       height: 34px
 
 
-.box
-  margin: 0 auto
-  background: white
-  width: 50%
+#wrapp_box
+  width: 75%
+  overflow: hidden
   border: 1px solid darken($lightgray, 10)
-  min-height: 500px
+  background: darken($lightgray, 5) url(../images/bg-pattern.png)
+  border-radius: 5px
+  >ul
+    min-width: 5000em
+    margin-left: 275px
+
+.box
+  float: left
+  background: white
+  width: 800px
+  border: 1px solid darken($lightgray, 10)
+  min-height: 600px
   min-width: 600px
+  margin: 15px
+  padding: 10px
 
 .box_content
   padding: 15px
