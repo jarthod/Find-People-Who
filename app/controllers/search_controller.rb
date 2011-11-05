@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   before_filter :parse
+  before_filter :login_required?
 
   def index
     @last_url = request.url
@@ -8,6 +9,10 @@ class SearchController < ApplicationController
   end
   
 protected
+  def login_required?
+    redirect_to new_session_path if @user.nil?
+  end
+
   def parse
     @path = params[:path]
     @last = "User"

@@ -6,8 +6,8 @@
     %ul#suggestions
       - LINKS.each do |key, link|
         - if link["origin"] == @last
-          - for elem in @origin.send(link['assoc'].underscore.pluralize).where('kind', link['kind']).order("random()").limit(link['number'])
-            - target = elem.send(link['target'].downcase)
+          - for elem in link['target'].constantize.order(link['sort']).limit(link['number']).find(associated_ids(@origin, link))
+            - target = elem
             %li
               = link_to @last_url + "#{link['url']}/#{target.permalink}" do
                 = image_tag target.image
