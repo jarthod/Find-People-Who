@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   
 protected
   def authenticate
-    @login = session[:login]
+    @name = session[:name]
+    @user = User.find_by_name(@name)
   end
 end
