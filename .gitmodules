@@ -1,0 +1,3 @@
+[submodule "vendor/gems/rockstar"]
+	path = vendor/gems/rockstar
+	url = https://github.com/bitboxer/rockstar.git
