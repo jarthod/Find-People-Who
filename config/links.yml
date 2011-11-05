@@ -6,6 +6,7 @@ fan:
   label: user_top_artist
   number: 4
   url: "fan"
+  sort: "random()"
 attend:
   origin: User
   target: Event
@@ -14,4 +15,5 @@ attend:
   label: user_attend_event
   number: 3
   url: "attend"
+  sort: "attendance DESC"
   

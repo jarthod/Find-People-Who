@@ -3,6 +3,18 @@ class Event < ActiveRecord::Base
   has_many :artists, :through => :artists_events
   has_many :event_users
   has_many :events, :through => :event_users
+
+  before_validation :generate_permalink, :on => :create
+
+  def name
+    title
+  end
+
+protected
+  def generate_permalink
+    self.permalink = title.parameterize
+    self.permalink = title if permalink.blank?
+  end
 end
 
 # == Schema Info
