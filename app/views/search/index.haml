@@ -4,7 +4,7 @@
   .clear
   .searchbar
     = form_tag '' do
-      = text_field_tag :search, '', :placeholder => "LIKE..."
+      = text_field_tag :search, '', :placeholder => "..."
   .suggestions
     %ul
       - LINKS.each do |key, link|
