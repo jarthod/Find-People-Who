@@ -240,7 +240,8 @@ ul.messages {
 .dropdown {
   border: 1px solid #c8c8c8;
   position: absolute;
-  background: white; }
+  background: white;
+  z-index: 2; }
   .dropdown li {
     padding: 5px;
     text-align: left; }

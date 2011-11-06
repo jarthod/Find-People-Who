@@ -62,20 +62,28 @@ var back = function() {
 }
 
 var dropdownClicked = function() {
-    alert(this);
+//    alert($(this).html());
+    var input = $('.searchbar').find('input');
+    input.val($(this).html() + " ");
+    input.trigger('focus');
+    $('.dropdown').remove();
 }
 
 var displayDropdown = function(event) {
     var input = $(event.target);
-    var dropdown = $('<div class="dropdown"><ul><li>like </li><li>rencently listened to</li></ul></div>');
-    dropdown.width(input.width() + 6);
-    $('.searchbar').append(dropdown);
-    dropdown.css({top : input.height() + 10, left:5});
-    dropdown.find('li').click(dropdownClicked);
+    if (input.val() != 'Like' && input.val() != 'Rencently listened to')
+    {
+      var dropdown = $('<div class="dropdown"><ul><li>Like</li><li>Rencently listened to</li></ul></div>');
+      dropdown.width(input.width() + 6);
+      $('.searchbar').append(dropdown);
+      dropdown.css({top : input.height() + 10, left:5});
+      dropdown.find('li').click(dropdownClicked);
+    }
 }
 
-var hideDropdown = function() {
-    setTimeout(100, function(){$('.dropdown').remove();})
+var hideDropdown = function(event) {
+  if ($('.dropdown').is(':hover') == false)
+    $('.dropdown').remove();
 }
 
 var initWindow = function() {
