@@ -57,7 +57,8 @@ Hdp::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
   
   resources :sessions
-
+  match 'search/listened/:arg' => 'search#listened'
+  match 'search/fan/:arg' => 'search#fan'
   match '(*path)/chat' => 'search#chat'
   match '(*path)' => 'search#index'
 end
