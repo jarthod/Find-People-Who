@@ -8,12 +8,14 @@ class EventTest < ActiveSupport::TestCase
 end
 
 # == Schema Info
-# Schema version: 20111105124523
+# Schema version: 20111106000154
 #
 # Table name: events
 #
 #  id         :integer         not null, primary key
 #  attendance :integer
+#  city       :string(255)
+#  country    :string(255)
 #  image      :string(255)
 #  permalink  :string(255)
 #  title      :string(255)
