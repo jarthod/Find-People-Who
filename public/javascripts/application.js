@@ -2,9 +2,12 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var next = function(event) {
-  if ($(event.target).hasClass('clicked'))
+  link = $(event.target).closest('a');
+  if (link.parent().hasClass('chat-link'))
+    link = link.parent().prev()
+  if (link.hasClass('clicked'))
     return;
-  $(event.target).addClass('clicked');
+  link.addClass('clicked');
   var box = $('#wrapp_box>ul>li').last();
   var dload = $('<div class="loading"></div>');
   dload.height(box.height());
