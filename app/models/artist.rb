@@ -3,12 +3,14 @@ class Artist < ActiveRecord::Base
   has_many :artist_users
   has_many :users, :through => :artist_users
   has_many :artist_events
-  has_many :events, :through => :artists_events
+  has_many :events, :through => :artist_events
+  has_many :artist_tracks
+  has_many :tracks, :through => :artist_tracks
   
   before_validation :generate_permalink, :on => :create
 
   def fetch_events!
-    return if artist_events.count > 0
+    return if artist_events.where(:kind => 1).count > 0
     ra = Rockstar::Artist.new(name)
     ra.events(:limit => 20).each do |re|
       event = Event.from_rockstar re
@@ -22,6 +24,15 @@ class Artist < ActiveRecord::Base
     ra.similar(:limit => 6).each do |similar|
       artist = Artist.from_rockstar similar
       similars.find_or_create_by_artist_id_and_kind(artist.id, 1)
+    end
+  end
+
+  def fetch_tracks!
+    return if artist_tracks.where(:kind => 1).count > 0
+    ra = Rockstar::Artist.new(name)
+    ra.top_tracks.each do |rt|
+      track = Track.from_rockstar rt
+      artist_tracks.find_or_create_by_track_id_and_kind(track.id, 1)
     end
   end
   
