@@ -6,17 +6,6 @@ class Track < ActiveRecord::Base
   has_many :artists, :through => :artist_tracks
     
   before_validation :generate_permalink, :on => :create
-
-=begin
-  def fetch_events!
-    return if artist_events.count > 0
-    ra = Rockstar::Artist.new(name)
-    ra.events(:limit => 20).each do |re|
-      event = Event.from_rockstar re
-      artist_events.find_or_create_by_event_id_and_kind(event.id, 1)
-    end
-  end
-=end
   
   def fetch_tracks!
     return if similar_tracks.count > 0
@@ -25,6 +14,13 @@ class Track < ActiveRecord::Base
       track = Track.from_rockstar similar
       similar_tracks.find_or_create_by_track_id_and_kind(track.id, 1)
     end
+  end
+
+  def fetch_artists!
+    return if artist_tracks.where(:kind => 2).count > 0
+    ra = Rockstar::Artist.new(artist_name, :include_info => true)
+    artist = Artist.from_rockstar ra
+    artist_tracks.find_or_create_by_artist_id_and_kind(artist.id, 2)
   end
   
   def self.from_rockstar rt

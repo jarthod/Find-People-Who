@@ -52,4 +52,30 @@ similar_tracks:
   url: "listened-to"
   number: 3
   sort: "random()"
-
+top_tracks:
+  origin: Artist
+  target: Track
+  assoc: ArtistTrack
+  kind: 1
+  label: user_recent_track
+  url: "listened-to"
+  number: 3
+  sort: "random()"
+event_headliners:
+  origin: Event
+  target: Artist
+  assoc: ArtistEvent
+  kind: 2
+  label: user_top_artist
+  url: "fan"
+  number: 3
+  sort: "random()"
+track_artist:
+  origin: Track
+  target: Artist
+  assoc: ArtistTrack
+  kind: 2
+  label: user_top_artist
+  url: "fan"
+  number: 1
+  sort: "1"
