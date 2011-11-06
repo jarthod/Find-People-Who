@@ -10,11 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111105124523) do
+ActiveRecord::Schema.define(:version => 20111106000154) do
 
   create_table "artist_events", :force => true do |t|
     t.integer  "event_id"
     t.integer  "artist_id"
+    t.integer  "kind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "artist_tracks", :force => true do |t|
+    t.integer  "artist_id"
+    t.integer  "track_id"
     t.integer  "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -60,10 +68,34 @@ ActiveRecord::Schema.define(:version => 20111105124523) do
     t.datetime "updated_at"
   end
 
+  create_table "similar_tracks", :force => true do |t|
+    t.integer  "track_id"
+    t.integer  "similar_id"
+    t.integer  "kind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "similars", :id => false, :force => true do |t|
     t.integer  "artist_id"
     t.integer  "similar_id"
     t.integer  "kind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "track_users", :force => true do |t|
+    t.integer  "track_id"
+    t.integer  "user_id"
+    t.integer  "kind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.integer  "uid"
+    t.string   "name"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
