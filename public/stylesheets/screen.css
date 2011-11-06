@@ -89,6 +89,7 @@ h1 {
   display: none; }
 
 .searchbar {
+  position: relative;
   text-align: center;
   margin-bottom: 15px; }
   .searchbar input {
@@ -226,3 +227,14 @@ ul.messages {
   position: absolute;
   top: 0;
   left: 0; }
+
+.dropdown {
+  border: 1px solid #c8c8c8;
+  position: absolute;
+  background: white; }
+  .dropdown li {
+    padding: 5px;
+    text-align: left; }
+    .dropdown li:hover {
+      background: #e1e1e1;
+      cursor: pointer; }

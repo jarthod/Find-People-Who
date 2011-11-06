@@ -27,6 +27,8 @@ var next = function(event) {
         $('#wrapp_box>ul').append(newLi);
         $(newLi).find('.suggestions').find('a').click(next);
         $(newLi).find('.back_button').find('a').click(back);
+	$('.searchbar input').focus(displayDropdown);
+	$('.searchbar input').blur(hideDropdown);
         var marginValue = $('#wrapp_box>ul .box').width() + 32 - parseInt($('#wrapp_box>ul').css('margin-left').replace('px', ''));
         $('.box').height($(prevBox).height());
 
@@ -56,10 +58,29 @@ var back = function() {
           prevBox.removeClass('prev_box');
 }
 
+var dropdownClicked = function() {
+    alert(this);
+}
+
+var displayDropdown = function(event) {
+    var input = $(event.target);
+    var dropdown = $('<div class="dropdown"><ul><li>like </li><li>rencently listened to</li></ul></div>');
+    dropdown.width(input.width() + 6);
+    $('.searchbar').append(dropdown);
+    dropdown.css({top : input.height() + 10, left:5});
+    dropdown.find('li').click(dropdownClicked);
+}
+
+var hideDropdown = function() {
+    setTimeout(100, function(){$('.dropdown').remove();})
+}
+
 var initWindow = function() {
   $('.suggestions li a').click(next);
   $('.back_button a').click(back);
   $('.box').width($('#wrapp_box').width() * 0.6);
+  $('.searchbar input').focus(displayDropdown);
+  $('.searchbar input').blur(hideDropdown);
 //  $('.box').width(400);
 //  var ml = $('#wrapp_box').width() - $('.box').width() - 32;
 //  $('#wrapp_box>ul').css({marginLeft: ml});
