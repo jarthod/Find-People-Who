@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :url
       t.string :permalink
       t.timestamps
+      t.string :headliners
     end
   end
 
