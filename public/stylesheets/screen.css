@@ -160,6 +160,7 @@ h1 {
     .prev_box .suggestions li a .img {
       margin-right: 57px; }
     .prev_box .suggestions li a.clicked {
+      z-index: 2;
       -moz-transition: all 0.7s linear;
       -o-transition: all 0.7s linear;
       -webkit-transition: all 0.7s linear;
@@ -168,12 +169,12 @@ h1 {
       border: 1px solid #c8c8c8;
       border-right: 1px solid white;
       position: relative;
-      left: 60px;
+      left: 57px;
       color: #0083a9;
       background: white; }
       .prev_box .suggestions li a.clicked .info {
         text-align: right;
-        margin-right: 60px; }
+        margin-right: 57px; }
 
 ul.messages {
   margin: 0;
