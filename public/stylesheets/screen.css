@@ -71,9 +71,13 @@ h1 {
 
 .box {
   float: left;
+  -moz-transition: background 0.7s linear;
+  -o-transition: background 0.7s linear;
+  -webkit-transition: background 0.7s linear;
+  transition: background 0.7s linear;
   background: white;
+  min-width: 250px;
   position: relative;
-  min-width: 400px;
   border: 1px solid #c8c8c8;
   margin: 15px;
   padding: 0; }
@@ -81,34 +85,42 @@ h1 {
 .box_content {
   padding: 15px; }
 
+.back_button {
+  display: none; }
+
 .searchbar {
   text-align: center;
-  margin-bottom: 40px; }
+  margin-bottom: 15px; }
   .searchbar input {
-    height: 45px;
+    height: 35px;
     width: 97%;
-    padding: 5px;
+    padding: 3px;
     font-size: 1.8em; }
 
 .suggestions {
+  -moz-transition: all 0.7s linear;
+  -o-transition: all 0.7s linear;
+  -webkit-transition: all 0.7s linear;
+  transition: all 0.7s linear;
   margin: 0;
-  padding: 0;
-  overflow: auto; }
+  padding: 0; }
   .suggestions li {
-    padding: 7px 10px; }
+    padding: 5px 10px; }
     .suggestions li a {
       padding: 5px;
       display: block;
-      -moz-transition: background-color 0.2s linear;
-      -o-transition: background-color 0.2s linear;
-      -webkit-transition: background-color 0.2s linear;
-      transition: background-color 0.2s linear; }
+      -moz-transition: all 0.7s linear;
+      -o-transition: all 0.7s linear;
+      -webkit-transition: all 0.7s linear;
+      transition: all 0.7s linear; }
       .suggestions li a:hover {
         color: #0083a9;
         background: #e1e1e1;
         border-radius: 3px; }
       .suggestions li a img {
-        float: left; }
+        float: left;
+        width: 34px;
+        height: 34px; }
       .suggestions li a .info {
         float: left;
         margin-left: 10px;
@@ -117,20 +129,52 @@ h1 {
           font-size: 12px; }
 
 .prev_box {
+  -moz-transition: all 0.7s linear;
+  -o-transition: all 0.7s linear;
+  -webkit-transition: all 0.7s linear;
+  transition: all 0.7s linear;
+  -moz-transition: all 0.7s linear;
+  -o-transition: all 0.7s linear;
+  -webkit-transition: all 0.7s linear;
+  transition: all 0.7s linear;
+  background: #f3f3f3;
   position: relative; }
+  .prev_box .back_button {
+    display: block;
+    height: 35px;
+    padding: 3px;
+    float: right;
+    font-size: 1.8em;
+    margin-bottom: 15px; }
   .prev_box .searchbar {
     display: none; }
   .prev_box .suggestions {
-    overflow: hidden;
+    -moz-transition: all 0.7s linear;
+    -o-transition: all 0.7s linear;
+    -webkit-transition: all 0.7s linear;
+    transition: all 0.7s linear;
     text-align: right; }
     .prev_box .suggestions li a .info {
+      text-align: right;
       float: right; }
     .prev_box .suggestions li a .img {
-      float: right; }
+      margin-right: 57px; }
     .prev_box .suggestions li a.clicked {
+      z-index: 2;
+      -moz-transition: all 0.7s linear;
+      -o-transition: all 0.7s linear;
+      -webkit-transition: all 0.7s linear;
+      transition: all 0.7s linear;
+      border-radius: 0px;
+      border: 1px solid #c8c8c8;
+      border-right: 1px solid white;
+      position: relative;
+      left: 57px;
       color: #0083a9;
-      background: #e1e1e1;
-      border-radius: 3px; }
+      background: white; }
+      .prev_box .suggestions li a.clicked .info {
+        text-align: right;
+        margin-right: 57px; }
 
 ul.messages {
   margin: 0;

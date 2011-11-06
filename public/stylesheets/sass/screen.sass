@@ -83,9 +83,10 @@ h1
 
 .box
   float: left
+  @include smooth(background, 0.7s)
   background: white
+  min-width: 250px
   position: relative
-  min-width: 400px
   border: 1px solid darken($lightgray, 10)
   margin: 15px
   padding: 0
@@ -93,32 +94,36 @@ h1
 .box_content
   padding: 15px
 
+.back_button
+  display: none
 
 .searchbar
   text-align: center
-  margin-bottom: 40px
+  margin-bottom: 15px
   input
-    height: 45px
+    height: 35px
     width: 97%
-    padding: 5px
+    padding: 3px
     font-size: 1.8em
 
 .suggestions
+  @include smooth(all, 0.7s)
   margin: 0
   padding: 0
-  overflow: auto
   li
-    padding: 7px 10px
+    padding: 5px 10px
     a
       padding: 5px
       display: block
-      @include smooth(background-color, 0.2s)
+      @include smooth(all, 0.7s)
       &:hover
         color: $blue
         background: $lightgray
         border-radius: 3px
       img
         float: left
+        width: 34px
+        height: 34px
       .info
         float: left
         margin-left: 10px
@@ -126,22 +131,41 @@ h1
         .sub
           font-size: 12px
 .prev_box
+  @include smooth(all, 0.7s)
+  .back_button
+    display: block
+    height: 35px
+    padding: 3px
+    float: right
+    font-size: 1.8em
+    margin-bottom: 15px
   .searchbar
     display: none
+  @include smooth(all, 0.7s)
+  background: lighten($lightgray, 7)
   .suggestions
-    overflow: hidden
+    @include smooth(all, 0.7s)
     text-align: right
     li
       a
         .info
+          text-align: right
           float: right
         .img
-          float: right
+          margin-right: 57px
       a.clicked
+        z-index: 2
+        @include smooth(all, 0.7s)
+        .info
+          text-align: right
+          margin-right: 57px
+        border-radius: 0px
+        border: 1px solid darken($lightgray, 10)
+        border-right: 1px solid white
+        position: relative
+        left: 57px
         color: $blue
-        background: $lightgray
-        border-radius: 3px
-        
+        background: white
   position: relative
 
 ul.messages
