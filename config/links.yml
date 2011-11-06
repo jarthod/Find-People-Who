@@ -34,3 +34,12 @@ similar_artist:
   number: 3
   url: "fan"
   sort: "random()"
+listened-to:
+  origin: User
+  target: Track
+  assoc: TrackUser
+  kind: 1
+  label: user_recent_track
+  number: 3
+  url: "listened-to"
+  sort: "random()"
