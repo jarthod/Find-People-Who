@@ -9,6 +9,10 @@ class SearchController < ApplicationController
     render :index, :layout => nil if request.xhr?
   end
   
+  def chat
+    
+  end
+  
 protected
   def login_required?
     redirect_to new_session_path if @user.nil?

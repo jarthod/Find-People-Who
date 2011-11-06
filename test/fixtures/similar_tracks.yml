@@ -9,3 +9,15 @@ two:
   track_id: 1
   similar_id: 1
   kind: 1
+
+# == Schema Info
+# Schema version: 20111106000154
+#
+# Table name: similar_tracks
+#
+#  id         :integer         not null, primary key
+#  similar_id :integer
+#  track_id   :integer
+#  kind       :integer
+#  created_at :datetime
+#  updated_at :datetime
