@@ -57,6 +57,7 @@ Hdp::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
   
   resources :sessions
-  
+
+  match '(*path)/chat' => 'search#chat'
   match '(*path)' => 'search#index'
 end

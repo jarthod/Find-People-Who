@@ -3,7 +3,6 @@ class TrackUser < ActiveRecord::Base
   belongs_to :track
 end
 
-
 # == Schema Info
 # Schema version: 20111106000154
 #

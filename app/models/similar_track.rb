@@ -1,7 +1,6 @@
 class SimilarTrack < ActiveRecord::Base
 end
 
-
 # == Schema Info
 # Schema version: 20111106000154
 #

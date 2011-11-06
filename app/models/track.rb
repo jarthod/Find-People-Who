@@ -49,7 +49,6 @@ protected
   end
 end
 
-
 # == Schema Info
 # Schema version: 20111106000154
 #
