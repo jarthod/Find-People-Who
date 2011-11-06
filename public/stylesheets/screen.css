@@ -181,15 +181,42 @@ ul.messages {
   padding: 0;
   width: 100%;
   position: absolute;
-  bottom: 40px; }
+  bottom: 80px; }
+  ul.messages span {
+    display: block;
+    float: left;
+    clear: left;
+    width: 70px;
+    text-align: right;
+    margin-right: 5px; }
+    ul.messages span.me {
+      font-weight: bold; }
+    ul.messages span.color-1 {
+      color: #993333; }
+    ul.messages span.color-2 {
+      color: #005588; }
+    ul.messages span.color-3 {
+      color: #009922; }
 
 .input {
-  background-color: #cccccc;
+  background-color: #999999;
+  background-color: transparent;
   width: 100%;
-  height: 40px;
+  height: 70px;
   position: absolute;
   bottom: 0; }
   .input form {
-    margin: 5px; }
+    margin: 15px; }
     .input form input {
-      width: 90%; }
+      width: 97%;
+      font-size: 1.8em;
+      height: 35px;
+      padding: 3px;
+      background-color: white;
+      border: none;
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5); }
+
+.spacer {
+  min-height: 500px;
+  width: 70px;
+  background-color: #eeeeee; }
