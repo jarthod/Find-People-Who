@@ -16,11 +16,12 @@ EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080) do |ws|
     # Handle new client
     sid = channel.subscribe do |data|
       sender, msg = *data
+      uid = @users.index sender
       puts "send to #{ws.id}: #{msg}"
       if (sender == ws.id)
-        ws.send "me: #{msg}"
+        ws.send "<span class=\"me\">##{uid} (me):</span> <b>#{msg}</b>"
       else
-        ws.send "##{@user.index sender}: #{msg}"
+        ws.send "<span class=\"stranger color-#{uid % 4}\">##{uid}:</span> #{msg}"
       end
     end
 
