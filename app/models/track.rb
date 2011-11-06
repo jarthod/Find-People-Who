@@ -16,17 +16,16 @@ class Track < ActiveRecord::Base
       artist_events.find_or_create_by_event_id_and_kind(event.id, 1)
     end
   end
+=end
   
-  def fetch_artists!
-    return if similars.count > 0
-    ra = Rockstar::Artist.new(name)
-    ra.similar(:limit => 6).each do |similar|
-      artist = Artist.from_rockstar similar
-      similars.find_or_create_by_artist_id_and_kind(artist.id, 1)
+  def fetch_tracks!
+    return if similar_tracks.count > 0
+    rt = Rockstar::Track.new(artist_name, name)
+    rt.similar(10).each do |similar|
+      track = Track.from_rockstar similar
+      similar_tracks.find_or_create_by_track_id_and_kind(track.id, 1)
     end
   end
-
-=end
   
   def self.from_rockstar rt
     Track.find_or_create_by_name_and_artist_name({:name => rt.name,

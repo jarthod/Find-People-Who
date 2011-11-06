@@ -24,12 +24,12 @@ a {
     color: #0083a9; }
 
 ul {
-  margin: none;
-  padding: none;
+  margin: 0;
+  padding: 0;
   list-style: none; }
   ul li {
-    margin: none;
-    padding: none; }
+    margin: 0;
+    padding: 0; }
 
 h1 {
   display: block;
@@ -72,38 +72,59 @@ h1 {
 .box {
   float: left;
   background: white;
-  width: 800px;
+  min-width: 400px;
   border: 1px solid #c8c8c8;
-  min-height: 600px;
-  min-width: 600px;
   margin: 15px;
-  padding: 10px; }
+  padding: 0; }
 
 .box_content {
   padding: 15px; }
 
-#searchbar {
+.searchbar {
   text-align: center;
   margin-bottom: 40px; }
-  #searchbar input {
+  .searchbar input {
     height: 45px;
     width: 97%;
     padding: 5px;
     font-size: 1.8em; }
 
-#suggestions {
-  list-style: none;
+.suggestions {
   margin: 0;
-  padding: 0; }
-  #suggestions li {
-    padding: 10px; }
-    #suggestions li a {
+  padding: 0;
+  overflow: auto; }
+  .suggestions li {
+    padding: 7px 10px; }
+    .suggestions li a {
       padding: 5px;
-      font-size: 1.5em;
-      display: block; }
-      #suggestions li a:hover {
+      display: block;
+      -moz-transition: background-color 0.2s linear;
+      -o-transition: background-color 0.2s linear;
+      -webkit-transition: background-color 0.2s linear;
+      transition: background-color 0.2s linear; }
+      .suggestions li a:hover {
         color: #0083a9;
         background: #e1e1e1;
         border-radius: 3px; }
-      #suggestions li a img {
-        vertical-align: middle; }
+      .suggestions li a img {
+        float: left; }
+      .suggestions li a .info {
+        float: left;
+        margin-left: 10px;
+        font-size: 17px; }
+        .suggestions li a .info .sub {
+          font-size: 12px; }
+
+.prev_box .searchbar {
+  display: none; }
+.prev_box .suggestions {
+  overflow: hidden;
+  text-align: right; }
+  .prev_box .suggestions li a .info {
+    float: right; }
+  .prev_box .suggestions li a .img {
+    float: right; }
+  .prev_box .suggestions li a.clicked {
+    color: #0083a9;
+    background: #e1e1e1;
+    border-radius: 3px; }

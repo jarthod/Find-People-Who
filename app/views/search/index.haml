@@ -1,15 +1,19 @@
-#searchbar
-  = form_tag '' do
-    = text_field_tag :search, '', :placeholder => "LIKE..."
-%ul#suggestions
-  - LINKS.each do |key, link|
-    - if link["origin"] == @last
-      - @origin.send("fetch_#{link['target'].downcase.pluralize}!")
-      - for elem in link['target'].constantize.order(link['sort']).limit(link['number']).find(associated_ids(@origin, link))
-        - target = elem
-        %li
-          = link_to File.join(@last_url, "#{link['url']}", "#{target.permalink}") do
-            = image_tag target.image
-            = raw(t(link['label'], :name => target.name))
-          - if target.respond_to? :sub_data
-            .sub= raw(t('sub_' + link['label'].to_s, target.sub_data))
+.box_content
+  .searchbar
+    = form_tag '' do
+      = text_field_tag :search, '', :placeholder => "LIKE..."
+  .suggestions
+    %ul
+      - LINKS.each do |key, link|
+        - if link["origin"] == @last
+          - @origin.send("fetch_#{link['target'].downcase.pluralize}!")
+          - for elem in link['target'].constantize.order(link['sort']).limit(link['number']).find(associated_ids(@origin, link))
+            - target = elem
+            %li
+              = link_to File.join(@last_url, "#{link['url']}", "#{target.permalink}") do
+                = image_tag target.image
+                .info
+                  = raw(t(link['label'], :name => target.name))
+                  - if target.respond_to? :sub_data
+                    .sub= raw(t('sub_' + link['label'].to_s, target.sub_data))
+                .clear
