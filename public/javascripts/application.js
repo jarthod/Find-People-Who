@@ -2,28 +2,53 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var next = function(event) {
+  $(event.target).addClass('clicked');
   $.ajax({
     url: this,
      success: function(data) {
         var prevBox = $('#wrapp_box>ul>li').last();
-        $('#wrapp_box>ul').append($('<li class="box">' + data + '</li>'));
+        
+        var newLi = $('<li class="box">' + data + '</li>');
+        $('#wrapp_box>ul').append(newLi);
+        $(newLi).find('.suggestions').find('a').click(next);
+        $(newLi).find('.back_button').find('a').click(back);
         var marginValue = $('#wrapp_box>ul .box').width() + 32 - parseInt($('#wrapp_box>ul').css('margin-left').replace('px', ''));
-        $('#wrapp_box>ul').animate({marginLeft: -marginValue});
+
+        $('#wrapp_box>ul').animate({marginLeft: -marginValue}, {duration: 800});
+
+
         prevBox.addClass('prev_box');
-        initWindow();
-        $(event.target).addClass('clicked');
+
+//        $('.suggestions li a').click(next);
+        $('.box').height($(prevBox).height());
+        $('.box').width($('#wrapp_box').width() * 0.6);
      }
     });
+        
   return false;
+}
+
+var back = function() {
+        var marginValue =  parseInt($('#wrapp_box>ul').css('margin-left').replace('px', '')) + $('#wrapp_box>ul .box').width() + 32;
+
+        $('#wrapp_box>ul').animate({marginLeft: marginValue}, {duration: 800, complete: function() {
+          $('#wrapp_box>ul>li').last().remove();
+        }});
+          var prevBox = $('#wrapp_box>ul>li').last().prev();
+          $(prevBox).find('a').each(function(i, e) {
+            $(e).removeClass('clicked');
+          })
+          prevBox.removeClass('prev_box');
 }
 
 var initWindow = function() {
   $('.suggestions li a').click(next);
-  $('.box').height($(document).height() * 0.8);
-  $('.box').width($('#wrapp_box').width() * 0.66);
-  var ml = $('#wrapp_box').width() - $('.box').width() - 32;
-  $('#wrapp_box>ul').css({marginLeft: ml});
-  $('.suggestions').height($('.box').height() * 0.7);
+  $('.back_button a').click(back);
+  $('.box').width($('#wrapp_box').width() * 0.6);
+//  $('.box').width(400);
+//  var ml = $('#wrapp_box').width() - $('.box').width() - 32;
+//  $('#wrapp_box>ul').css({marginLeft: ml});
+//  $('.suggestions').height($('.box').height() * 0.7);
 }
 
 $(document).ready(function(){

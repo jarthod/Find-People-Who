@@ -38,7 +38,7 @@ class Track < ActiveRecord::Base
   end
 
   def image
-    "http://cdn.last.fm/flatness/preview/play_indicator.png"
+    "/images/cd.png"
   end
 
 protected
