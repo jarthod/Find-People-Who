@@ -15,9 +15,10 @@ class SearchController < ApplicationController
 
   def fan
     name = params[:arg]
+    @last_url = params[:last_url]
     return render :status => 404, :nothing => true if name.nil? or name.empty?  
     if artist = Artist.find_by_name(name)
-      render :partial => 'suggestion', :locals => {:link => LINKS['fan'], :target => artist}
+      return render :partial => 'suggestion', :locals => {:link => LINKS['fan'], :target => artist}
     end
     ra = (Rockstar::Artist.new(name, :include_info => true) rescue nil)
     if ra.nil?
@@ -29,16 +30,17 @@ class SearchController < ApplicationController
 
   def listened
     name = params[:arg]
+    @last_url = params[:last_url]
     return render :status => 404, :nothing => true if name.nil? or name.empty?  
     if track = Track.find_by_name(name)
-      render :partial => 'suggestion', :locals => {:link => LINKS['listened-to'], :target => track}
+      return render :partial => 'suggestion', :locals => {:link => LINKS['listened-to'], :target => track}
     end
     rt = (Rockstar::Track.new(nil, name, :include_info => true) rescue nil)
     if rt.nil?
       return render :status => 404, :nothing => true
     end
     track = Track.from_rockstar rt
-    render :partial => 'suggestion', :locals => {:link => LINKS['fan'], :target => track}    
+    render :partial => 'suggestion', :locals => {:link => LINKS['listened-to'], :target => track}    
   end
   
 protected
