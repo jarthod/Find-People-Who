@@ -6,7 +6,7 @@ fan:
   label: user_top_artist
   number: 3
   url: "fan"
-  sort: "random()"
+  sort: "1"
 attend:
   origin: User
   target: Event
@@ -33,7 +33,7 @@ similar_artist:
   label: user_top_artist
   number: 2
   url: "fan"
-  sort: "random()"
+  sort: "1"
 listened-to:
   origin: User
   target: Track
@@ -42,7 +42,7 @@ listened-to:
   label: user_recent_track
   number: 2
   url: "listened-to"
-  sort: "random()"
+  sort: "1"
 similar_tracks:
   origin: Track
   target: Track
@@ -51,7 +51,7 @@ similar_tracks:
   label: user_recent_track
   url: "listened-to"
   number: 3
-  sort: "random()"
+  sort: "1"
 top_tracks:
   origin: Artist
   target: Track
@@ -60,7 +60,7 @@ top_tracks:
   label: user_recent_track
   url: "listened-to"
   number: 3
-  sort: "random()"
+  sort: "1"
 event_headliners:
   origin: Event
   target: Artist
@@ -69,7 +69,7 @@ event_headliners:
   label: user_top_artist
   url: "fan"
   number: 3
-  sort: "random()"
+  sort: "1"
 track_artist:
   origin: Track
   target: Artist

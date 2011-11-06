@@ -1,7 +1,7 @@
 class Track < ActiveRecord::Base
   has_many :similar_tracks, :foreign_key => 'similar_id'
-  has_many :artist_tracks
-  has_many :track_users
+  has_many :artist_tracks, :dependent => :destroy
+  has_many :track_users, :dependent => :destroy
   has_many :users, :through => :track_users
   has_many :artists, :through => :artist_tracks
     

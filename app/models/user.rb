@@ -1,11 +1,11 @@
 require Rails.root.join('vendor/gems/rockstar/lib/rockstar.rb')
 
 class User < ActiveRecord::Base
-  has_many :event_users
+  has_many :event_users, :dependent => :destroy
   has_many :events, :through => :event_users
-  has_many :artist_users
+  has_many :artist_users, :dependent => :destroy
   has_many :artists, :through => :artist_users
-  has_many :track_users
+  has_many :track_users, :dependent => :destroy
   has_many :tracks, :through => :track_users
   
   def fetch_info!

@@ -1,10 +1,10 @@
 class Artist < ActiveRecord::Base
   has_many :similars, :foreign_key => 'similar_id'
-  has_many :artist_users
+  has_many :artist_users, :dependent => :destroy
   has_many :users, :through => :artist_users
-  has_many :artist_events
+  has_many :artist_events, :dependent => :destroy
   has_many :events, :through => :artist_events
-  has_many :artist_tracks
+  has_many :artist_tracks, :dependent => :destroy
   has_many :tracks, :through => :artist_tracks
   
   before_validation :generate_permalink, :on => :create
