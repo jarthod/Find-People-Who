@@ -6,5 +6,5 @@ en:
   user_top_artist: "like %{name}"
   user_attend_event: "will attend %{name}"
   sub_user_attend_event: "on %{strdate} in %{city}, %{country}"
-  user_recent_track: "recently listen to %{name}"
+  user_recent_track: "recently listened to %{name}"
   sub_user_recent_track: "by %{artist_name}"
