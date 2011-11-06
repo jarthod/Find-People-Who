@@ -72,6 +72,7 @@ h1 {
 .box {
   float: left;
   background: white;
+  position: relative;
   min-width: 400px;
   border: 1px solid #c8c8c8;
   margin: 15px;
@@ -115,16 +116,36 @@ h1 {
         .suggestions li a .info .sub {
           font-size: 12px; }
 
-.prev_box .searchbar {
-  display: none; }
-.prev_box .suggestions {
-  overflow: hidden;
-  text-align: right; }
-  .prev_box .suggestions li a .info {
-    float: right; }
-  .prev_box .suggestions li a .img {
-    float: right; }
-  .prev_box .suggestions li a.clicked {
-    color: #0083a9;
-    background: #e1e1e1;
-    border-radius: 3px; }
+.prev_box {
+  position: relative; }
+  .prev_box .searchbar {
+    display: none; }
+  .prev_box .suggestions {
+    overflow: hidden;
+    text-align: right; }
+    .prev_box .suggestions li a .info {
+      float: right; }
+    .prev_box .suggestions li a .img {
+      float: right; }
+    .prev_box .suggestions li a.clicked {
+      color: #0083a9;
+      background: #e1e1e1;
+      border-radius: 3px; }
+
+ul.messages {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 40px; }
+
+.input {
+  background-color: #cccccc;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0; }
+  .input form {
+    margin: 5px; }
+    .input form input {
+      width: 90%; }

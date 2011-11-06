@@ -1,2 +1,7 @@
-#chat
-
+%ul.messages
+  %li.me bonjour
+  %li.stranger hello
+  %li.stranger hi
+.chat.input{:data-path => @path.sort.join('-')}
+  = form_for '#' do
+    = text_field_tag :message
