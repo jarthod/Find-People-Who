@@ -186,6 +186,9 @@ h1 {
     .prev_box .suggestions li .chat-link {
       display: none; }
 
+input.error {
+  background-color: #ffcccc; }
+
 ul.messages {
   margin: 0;
   padding: 0;

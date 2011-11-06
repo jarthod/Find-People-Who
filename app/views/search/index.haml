@@ -5,6 +5,7 @@
   .searchbar
     = form_tag '' do
       = text_field_tag :search, '', :placeholder => "LIKE..."
+      = hidden_field_tag :last_url, @last_url
   .suggestions
     %ul
       - LINKS.each do |key, link|

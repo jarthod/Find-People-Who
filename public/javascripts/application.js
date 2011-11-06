@@ -20,7 +20,7 @@ var next = function(event) {
     dload2.width(box.prev().width());
     box.prev().append(dload2);
   }
-  window.location.hash = "#!" + this
+  window.location.hash = "#!" + link.attr('href');
   $.ajax({
     url: this,
      success: function(data) {
@@ -35,6 +35,7 @@ var next = function(event) {
         $(newLi).find('.back_button').find('a').click(back);
 	$('.searchbar input').focus(displayDropdown);
 	$('.searchbar input').blur(hideDropdown);
+	initSearch();
         var marginValue = $('#wrapp_box>ul .box').width() + 32 - parseInt($('#wrapp_box>ul').css('margin-left').replace('px', ''));
         $('.box').height($(prevBox).height());
         $('.spacer').height($(prevBox).height());
@@ -66,27 +67,31 @@ var back = function() {
 
 var dropdownClicked = function() {
 //    alert($(this).html());
-    var input = $('.searchbar').find('input');
-    input.val($(this).html() + " ");
+    var input = $('.searchbar').find('input[name=search]');
+    input.val($(this).find('strong').text() + " ");
     input.trigger('focus');
     $('.dropdown').remove();
 }
 
 var displayDropdown = function(event) {
+  if ($('.dropdown').length == 0)
+  {
     var input = $(event.target);
-    if (input.val() != 'Like' && input.val() != 'Rencently listened to')
-    {
-      var dropdown = $('<div class="dropdown"><ul><li>Like</li><li>Rencently listened to</li></ul></div>');
-      dropdown.width(input.width() + 6);
-      $('.searchbar').append(dropdown);
-      dropdown.css({top : input.height() + 10, left:5});
-      dropdown.find('li').click(dropdownClicked);
+    var dropdown = $('<div class="dropdown"><ul><li><strong>Like</strong> &lt;artist&gt;</li><li><strong>Rencently listened to</strong> &lt;track name&gt;</li></ul></div>');
+    dropdown.width(input.width() + 6);
+    $('.searchbar').append(dropdown);
+    dropdown.css({top : input.height() + 10, left:5});
+    dropdown.find('li').click(dropdownClicked);
     }
 }
 
 var hideDropdown = function(event) {
-  if ($('.dropdown').is(':hover') == false)
-    $('.dropdown').remove();
+  try {
+    if ($('.dropdown').last().is(':hover') == false)
+      $('.dropdown').last().remove();
+   } catch (e) {
+      $('.dropdown').last().remove();
+   }
 }
 
 var initWindow = function() {
@@ -97,14 +102,74 @@ var initWindow = function() {
   $('.box').width($('#wrapp_box').width() * 0.6);
   $('.searchbar input').focus(displayDropdown);
   $('.searchbar input').blur(hideDropdown);
+
 //  $('.box').width(400);
 //  var ml = $('#wrapp_box').width() - $('.box').width() - 32;
 //  $('#wrapp_box>ul').css({marginLeft: ml});
 //  $('.suggestions').height($('.box').height() * 0.7);
 }
 
+var initSearch = function() {
+  forms = $('.searchbar form')
+  forms.each(function(i, form) {
+    input = $(form).find('input[name=search]');
+    input.keypress(function() {
+      input.removeClass('error');
+    });
+    $(form).unbind('submit');
+    $(form).submit(function() {
+      input.removeClass('error');
+      last_url = $(form).find('input[name=last_url]').val();
+      if (input.val().substring(0, 5) == "Like ")
+      {
+        arg = input.val().substr(5);
+        $.ajax({
+          url: '/search/fan/' + arg,
+          data: {
+            'last_url': last_url
+          },
+          success: function( data ) {
+            $(form).parent().next().find('ul li').last().remove()
+            $(form).parent().next().find('ul').prepend('<li>'+ data + '</li>');
+            $(form).parent().next().find('ul li').first().find('a').click(next);
+            hideDropdown();
+          },
+          error: function(error) {
+            input.addClass('error');
+          }
+        });
+      }
+      else if (input.val().substring(0, 22) == "Rencently listened to ")
+      {
+        arg = input.val().substr(22);
+        $.ajax({
+          url: '/search/listened/' + arg,
+          data: {
+            'last_url': last_url
+          },
+          success: function( data ) {
+            $(form).parent().next().find('ul li').last().remove()
+            $(form).parent().next().find('ul').prepend('<li>'+ data + '</li>');
+            $(form).parent().next().find('ul li').first().find('a').click(next);
+            hideDropdown();
+          },
+          error: function(error) {
+            input.addClass('error');
+          }
+        });
+      }
+      else
+      {
+        input.addClass('error');
+      }
+      return false;
+    });
+  });
+}
+
 $(document).ready(function(){
   initWindow();
+  initSearch();
 })
 
 $(window).resize(initWindow);

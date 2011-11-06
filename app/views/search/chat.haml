@@ -1,20 +1,5 @@
 .spacer
 %ul.messages
-  %li
-    %span.stranger.color-1 #1:
-    my text
-  %li
-    %span.stranger.color-2 #2:
-    hello everbody !
-  %li
-    %span.stranger.color-1 #1:
-    test
-  %li
-    %span.stranger.color-3 #3:
-    youhouuuuuuuuU!
-  %li
-    %span.me #0 (me):
-    <b>hey !</b>
 .chat.input{:"data-filters" => @filters.sort.join('-')}
   = form_for '#' do
     = text_field_tag :message

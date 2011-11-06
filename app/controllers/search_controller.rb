@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   before_filter :login_required?
 
   def index
-    @last_url = request.url
+    @last_url = request.path
     # /fan/<artist>
     # /attend/<event>
     render :index, :layout => nil if request.xhr?
@@ -21,9 +21,10 @@ class SearchController < ApplicationController
       return render :partial => 'suggestion', :locals => {:link => LINKS['fan'], :target => artist}
     end
     ra = (Rockstar::Artist.new(name, :include_info => true) rescue nil)
-    if ra.nil?
+    if ra.nil? or ra.url.blank?
       return render :status => 404, :nothing => true
     end
+    puts ra.inspect
     artist = Artist.from_rockstar ra
     render :partial => 'suggestion', :locals => {:link => LINKS['fan'], :target => artist}    
   end
