@@ -3,6 +3,12 @@ $blue: #0083a9
 $red: #d83535
 $lightgray: #e1e1e1
 
+@mixin smooth($props, $duration)
+  -moz-transition: $props $duration linear
+  -o-transition: $props $duration linear
+  -webkit-transition: $props $duration linear
+  transition: $props $duration linear
+
 head
   height: 100%
 
@@ -28,12 +34,12 @@ a
     color: $blue
 
 ul
-  margin: none
-  padding: none
+  margin: 0
+  padding: 0
   list-style: none
   li
-    margin: none
-    padding: none
+    margin: 0
+    padding: 0
 
 
 h1
@@ -78,17 +84,16 @@ h1
 .box
   float: left
   background: white
-  width: 800px
+  min-width: 400px
   border: 1px solid darken($lightgray, 10)
-  min-height: 600px
-  min-width: 600px
   margin: 15px
-  padding: 10px
+  padding: 0
 
 .box_content
   padding: 15px
 
-#searchbar
+
+.searchbar
   text-align: center
   margin-bottom: 40px
   input
@@ -97,21 +102,41 @@ h1
     padding: 5px
     font-size: 1.8em
 
-#suggestions
-  list-style: none
+.suggestions
   margin: 0
   padding: 0
+  overflow: auto
   li
-    padding: 10px
+    padding: 7px 10px
     a
       padding: 5px
-      font-size: 1.5em
       display: block
+      @include smooth(background-color, 0.2s)
       &:hover
         color: $blue
         background: $lightgray
         border-radius: 3px
       img
-        vertical-align: middle
-
-
+        float: left
+      .info
+        float: left
+        margin-left: 10px
+        font-size: 17px
+        .sub
+          font-size: 12px
+.prev_box
+  .searchbar
+    display: none
+  .suggestions
+    overflow: hidden
+    text-align: right
+    li
+      a
+        .info
+          float: right
+        .img
+          float: right
+      a.clicked
+        color: $blue
+        background: $lightgray
+        border-radius: 3px
