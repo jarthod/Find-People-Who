@@ -13,7 +13,7 @@ class SearchController < ApplicationController
     render :chat, :layout => nil if request.xhr?
   end
 
-  def listened
+  def fan
     name = params[:arg]
     return render :status => 404, :nothing => true if name.nil? or name.empty?  
     if artist = Artist.find_by_name(name)
@@ -27,7 +27,7 @@ class SearchController < ApplicationController
     render :partial => 'suggestion', :locals => {:link => LINKS['fan'], :target => artist}    
   end
 
-  def fan
+  def listened
     name = params[:arg]
     return render :status => 404, :nothing => true if name.nil? or name.empty?  
     if track = Track.find_by_name(name)
