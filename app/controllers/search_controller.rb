@@ -10,7 +10,6 @@ class SearchController < ApplicationController
   end
   
   def chat
-    
   end
   
 protected
@@ -19,6 +18,7 @@ protected
   end
 
   def parse
+    @filters = []
     @path = params[:path]
     @last = "User"
     @origin = @user 
@@ -26,16 +26,13 @@ protected
     @path = @path.split('/')
     while @path.any?
       filter, arg = @path.shift 2
-      puts "Filter #{filter} = #{arg}"
       link = LINKS[filter]
       next if link.nil?
-      
+      @filters += [filter, arg]
       if @path.empty?
         @last = link['target']
         @origin = @last.constantize.find_by_permalink(arg)
       end
     end
-    puts @last
-    puts @origin.inspect
   end
 end

@@ -9,7 +9,7 @@ var chat_load = function(url) {
     command.prepend(status);
     var timer;
     var Socket = "MozWebSocket" in window ? MozWebSocket : WebSocket;
-    var ws = new Socket("ws://" + window.location.hostname + ":8080/");
+    var ws = new Socket("ws://" + window.location.hostname + ":8080/" + command.data("filters"));
     ws.onmessage = function(evt) { 
       status.text("Syncing...");
       status.addClass("sync");
