@@ -10,6 +10,7 @@ class SearchController < ApplicationController
   end
   
   def chat
+    render :chat, :layout => nil if request.xhr?
   end
   
 protected

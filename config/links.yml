@@ -4,7 +4,7 @@ fan:
   assoc: ArtistUser
   kind: 1
   label: user_top_artist
-  number: 4
+  number: 3
   url: "fan"
   sort: "random()"
 attend:
@@ -13,7 +13,7 @@ attend:
   assoc: EventUser
   kind: 1
   label: user_attend_event
-  number: 3
+  number: 2
   url: "attend"
   sort: "attendance DESC"
 artist_event:
@@ -22,7 +22,7 @@ artist_event:
   assoc: ArtistEvent
   kind: 1
   label: user_attend_event
-  number: 3
+  number: 2
   url: "attend"
   sort: "attendance DESC"
 similar_artist:
@@ -31,7 +31,7 @@ similar_artist:
   assoc: Similar
   kind: 1
   label: user_top_artist
-  number: 3
+  number: 2
   url: "fan"
   sort: "random()"
 listened-to:
@@ -40,7 +40,7 @@ listened-to:
   assoc: TrackUser
   kind: 1
   label: user_recent_track
-  number: 3
+  number: 2
   url: "listened-to"
   sort: "random()"
 similar_tracks:

@@ -105,28 +105,35 @@ h1 {
   margin: 0;
   padding: 0; }
   .suggestions li {
-    padding: 5px 10px; }
-    .suggestions li a {
+    padding: 5px 10px;
+    position: relative; }
+    .suggestions li > a {
       padding: 5px;
       display: block;
       -moz-transition: all 0.7s linear;
       -o-transition: all 0.7s linear;
       -webkit-transition: all 0.7s linear;
       transition: all 0.7s linear; }
-      .suggestions li a:hover {
+      .suggestions li > a:hover {
         color: #0083a9;
         background: #e1e1e1;
         border-radius: 3px; }
-      .suggestions li a img {
+      .suggestions li > a img {
         float: left;
         width: 34px;
         height: 34px; }
-      .suggestions li a .info {
+      .suggestions li > a .info {
         float: left;
         margin-left: 10px;
         font-size: 17px; }
-        .suggestions li a .info .sub {
+        .suggestions li > a .info .sub {
           font-size: 12px; }
+    .suggestions li .chat-link {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      height: 34px;
+      width: 34px; }
 
 .prev_box {
   -moz-transition: all 0.7s linear;
@@ -175,6 +182,8 @@ h1 {
       .prev_box .suggestions li a.clicked .info {
         text-align: right;
         margin-right: 57px; }
+    .prev_box .suggestions li .chat-link {
+      display: none; }
 
 ul.messages {
   margin: 0;
@@ -186,7 +195,7 @@ ul.messages {
     display: block;
     float: left;
     clear: left;
-    width: 70px;
+    width: 80px;
     text-align: right;
     margin-right: 5px; }
     ul.messages span.me {
@@ -217,8 +226,8 @@ ul.messages {
       box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5); }
 
 .spacer {
-  min-height: 500px;
-  width: 70px;
+  min-height: 400px;
+  width: 80px;
   background-color: #eeeeee; }
 
 .loading {
