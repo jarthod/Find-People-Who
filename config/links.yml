@@ -43,3 +43,13 @@ listened-to:
   number: 3
   url: "listened-to"
   sort: "random()"
+similar_tracks:
+  origin: Track
+  target: Track
+  assoc: SimilarTrack
+  kind: 1
+  label: user_recent_track
+  url: "listened-to"
+  number: 3
+  sort: "random()"
+
