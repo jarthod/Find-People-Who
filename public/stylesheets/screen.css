@@ -3,7 +3,7 @@ head {
 
 body {
   background: #e1e1e1;
-  font-family: Sans-serif;
+  font-family: Ubuntu, Sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -220,3 +220,9 @@ ul.messages {
   min-height: 500px;
   width: 70px;
   background-color: #eeeeee; }
+
+.loading {
+  background: rgba(255, 255, 255, 0.5) url(../images/ajax-loader.gif) no-repeat center center;
+  position: absolute;
+  top: 0;
+  left: 0; }
