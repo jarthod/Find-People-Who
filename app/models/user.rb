@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :events, :through => :event_users
   has_many :artist_users
   has_many :artists, :through => :artist_users
+  has_many :track_users
+  has_many :tracks, :through => :track_users
   
   def fetch_info!
     ru = Rockstar::User.new name, :include_profile => true
@@ -36,6 +38,15 @@ class User < ActiveRecord::Base
     events.each do |re|
       event = Event.from_rockstar re
       event_users.find_or_create_by_event_id_and_kind(event.id, 1)
+    end
+  end
+
+  def fetch_tracks!
+    return if track_users.count > 0
+    ru = Rockstar::User.new name
+    ru.recent_tracks.each do |rt|
+      track = Track.from_rockstar rt
+      track_users.find_or_create_by_track_id_and_kind(track.id, 1)
     end
   end
   
