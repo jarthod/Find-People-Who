@@ -2,6 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var next = function(event) {
+  if ($(event.target).hasClass('clicked'))
+    return;
   $(event.target).addClass('clicked');
   var box = $('#wrapp_box>ul>li').last();
   var dload = $('<div class="loading"></div>');
@@ -15,6 +17,7 @@ var next = function(event) {
     dload2.width(box.prev().width());
     box.prev().append(dload2);
   }
+  window.location.hash = "#!" + this
   $.ajax({
     url: this,
      success: function(data) {
@@ -31,9 +34,9 @@ var next = function(event) {
 	$('.searchbar input').blur(hideDropdown);
         var marginValue = $('#wrapp_box>ul .box').width() + 32 - parseInt($('#wrapp_box>ul').css('margin-left').replace('px', ''));
         $('.box').height($(prevBox).height());
-
+        $('.spacer').height($(prevBox).height());
         $('#wrapp_box>ul').animate({marginLeft: -marginValue}, {duration: 800});
-
+        chat_load();
 
         prevBox.addClass('prev_box');
 
@@ -76,7 +79,9 @@ var hideDropdown = function() {
 }
 
 var initWindow = function() {
+  $('.suggestions li a').unbind('click');
   $('.suggestions li a').click(next);
+  $('.back_button a').unbind('click');
   $('.back_button a').click(back);
   $('.box').width($('#wrapp_box').width() * 0.6);
   $('.searchbar input').focus(displayDropdown);

@@ -5,3 +5,7 @@
     - if target.respond_to? :sub_data
       .sub= raw(t('sub_' + link['label'].to_s, target.sub_data))
   .clear
+.chat-link
+  = link_to File.join(@last_url, "#{link['url']}", "#{target.permalink}", "/chat") do
+    = image_tag 'im.png'
+

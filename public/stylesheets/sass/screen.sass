@@ -113,7 +113,8 @@ h1
   padding: 0
   li
     padding: 5px 10px
-    a
+    position: relative
+    > a
       padding: 5px
       display: block
       @include smooth(all, 0.7s)
@@ -131,6 +132,12 @@ h1
         font-size: 17px
         .sub
           font-size: 12px
+    .chat-link
+      position: absolute
+      top: 10px
+      right: 10px
+      height: 34px
+      width: 34px
 .prev_box
   @include smooth(all, 0.7s)
   .back_button
@@ -167,6 +174,8 @@ h1
         left: 57px
         color: $blue
         background: white
+      .chat-link
+        display: none
   position: relative
 
 ul.messages
@@ -179,7 +188,7 @@ ul.messages
     display: block
     float: left
     clear: left
-    width: 70px
+    width: 80px
     text-align: right
     margin-right: 5px
     &.me
@@ -208,8 +217,8 @@ ul.messages
       border: none
       box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5)
 .spacer
-  min-height: 500px
-  width: 70px
+  min-height: 400px
+  width: 80px
   background-color: #eee
 
 .loading
